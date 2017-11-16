@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.4.1"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -33,8 +34,11 @@ gem 'jbuilder', '~> 2.7i'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec', '~> 3.7'
+  gem 'rspec-rails', '~> 3.6'
   gem 'sqlite3', '1.3.13'
   gem 'byebug', '9.0.6', platforms: :mri
+  gem 'pry-byebug', '3.4.0'
   # Adds support for Capybara system testing and selenium driver
 end
 
