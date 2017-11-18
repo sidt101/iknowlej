@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Course do
-  it "can have many students" do
-    course = Course.create!
-    alice = User.create!
-    course.users << alice
-    expect(course.reload.users).to eq([alice])
+  subject { Course.new(name: name) }
+
+  context 'valid course' do
+    context 'no name' do
+      let(:name) { ' ' }
+      it { should_not be_valid }
+    end
   end
 end
