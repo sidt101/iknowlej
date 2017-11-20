@@ -1,17 +1,17 @@
 = form_with(model: user, local: true) do |form|
-  - if user.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(user.errors.count, "error")
-        prohibited this user from being saved:
-      %ul
-        - user.errors.full_messages.each do |message|
-          %li= message
+  = render 'shared/error_messages', user: form.object
   .field
     = form.label :name
     = form.text_field :name, id: :user_name
   .field
-    = form.label :age
-    = form.text_field :age, id: :user_age
-  .actions
-    = form.submit
+    = form.label :email
+    = form.text_field :email, id: :user_email
+  .field
+    = form.label :password
+    = form.password_field :password, id: :user_password
+  .field
+    = form.label :password_confirmation, "Confirmation"
+    = form.password_field :password_confirmation, id: :user_password_confirmation
+
+  .action
+    = form.submit class: "btn btn-primary"
