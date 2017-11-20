@@ -1,0 +1,13 @@
+%h1 Log In
+= form_for(:session, url: login_path) do |form|
+  -# = render 'shared/error_messages', user: form.object
+  .field
+    = form.label :email
+    = form.text_field :email, id: :user_email
+  .field
+    = form.label :password
+    = form.password_field :password, id: :user_password
+  .action
+    = form.submit "Log in", class: "btn btn-primary"
+%p
+  New User? #{link_to "Sign up now!", signup_path}
