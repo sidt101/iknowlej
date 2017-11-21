@@ -42,6 +42,8 @@ group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug', '9.0.6', platforms: :mri
   gem 'pry-byebug', '3.4.0'
+  gem 'factory_bot_rails', '~> 4.0'
+
   # Adds support for Capybara system testing and selenium driver
 end
 

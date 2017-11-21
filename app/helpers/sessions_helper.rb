@@ -8,7 +8,7 @@ module SessionsHelper
     user_id_from_cookies ||= cookies.permanent.signed[:user_id]
     if user_id_from_session.present?
       @current_user ||= User.find_by(id: user_id_from_session)
-    else if user_id_from_cookies.present?
+    elsif user_id_from_cookies.present?
       @current_user ||= User.find(id: user_id_from_cookies.present)
       session[:user_id] = user_id_from_cookies
     end
