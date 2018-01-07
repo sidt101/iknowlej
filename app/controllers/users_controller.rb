@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     flash[:error] = params[:error]
-    flash[:success] = params[:success]
+    # flash[:success] = params[:success]
   end
 
   # GET /users/new

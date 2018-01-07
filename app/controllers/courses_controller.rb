@@ -10,8 +10,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    flash[:error] = params[:error]
-    flash[:success] = params[:success]
+    # flash[:error] = params[:error]
+    # flash[:success] = params[:success]
   end
 
   # GET /courses/new
