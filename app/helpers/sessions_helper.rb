@@ -42,7 +42,7 @@ module SessionsHelper
   private
 
   def require_login
-    unless current_user.present?
+    unless logged_in?
       redirect_to login_url
     end
   end

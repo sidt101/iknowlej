@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.7i'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
-
+gem 'haml-rails', '>= 0.3.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -43,12 +43,12 @@ group :development, :test do
   gem 'byebug', '9.0.6', platforms: :mri
   gem 'pry-byebug', '3.4.0'
   gem 'factory_bot_rails', '~> 4.0'
+  gem 'rails-controller-testing'
 
   # Adds support for Capybara system testing and selenium driver
 end
 
 group :development do
-  gem 'haml-rails', '>= 0.3.4'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

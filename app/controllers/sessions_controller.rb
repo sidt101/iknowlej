@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    puts
     user = User.find_by(email: params[:session][:email].downcase)
     if user.present? && user.authenticate(params[:session][:password])
       login(user)
