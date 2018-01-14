@@ -10,6 +10,6 @@ class CourseManager
   end
 
   def remove_users(users)
-    course.delete(users)
+    course.users.delete(users)
   end
 end

@@ -1,0 +1,5 @@
+%p
+- if @user.course.present?
+  = link_to @user.course, show_course_path(@user.course)
+- else
+  = "You are currently not enrolled in a course"

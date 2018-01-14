@@ -1,5 +1,5 @@
 %p#notice= notice
-%h1 courses
+%h1 Courses
 %table
   %thead
     %tr
@@ -7,7 +7,7 @@
   %tbody
     - @courses.each do |course|
       %tr
-        %td= link_to 'show', course
+        %td= link_to 'Show', course
         %td= link_to 'Edit', edit_course_path(course)
         %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
 %br/

@@ -1,11 +1,6 @@
 %p#notice= notice
-%p
-  = gravatar_for(@user)
-  %strong Name:
-  = @user.name
-%p
-  %strong Email:
-  = @user.email
-= link_to 'Edit', edit_user_path(@user)
-|
-= link_to 'Back', users_path
+= render :partial => "info"
+- if @user.admin?
+  = render :partial => "admin"
+- else
+  = render :partial => "course"
