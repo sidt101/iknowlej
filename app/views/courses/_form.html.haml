@@ -1,11 +1,7 @@
 = form_with(model: course, local: true) do |form|
-  - if course.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(course.errors.count, "error")
-        prohibited this course from being saved:
-      %ul
-        - course.errors.full_messages.each do |message|
-          %li= message
-  .actions
-    = form.submit
+  .field
+    = form.label :course_name
+    = form.text_field :name, id: :course_name
+
+  .action
+    = form.submit class: "btn btn-primary"

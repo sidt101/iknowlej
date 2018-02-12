@@ -11,7 +11,7 @@ module SessionsHelper
     elsif user_id_from_cookies.present?
       user = User.find_by(id: user_id_from_cookies)
       if user.present? && user.authenticated?(cookies[:remember_token])
-        login(user) unless logged_in?
+        login(user)
         @current_user ||= User.find_by(id: user_id_from_cookies)
       end
     end
