@@ -18,8 +18,8 @@ class User < ApplicationRecord
   end
 
   def remember
-    self.remember_token = User.random_string
-    update_attribute(:remember_digest, User.digest(remember_token))
+    self.remember_token = self.class.random_string
+    update_attribute(:remember_digest, self.class.digest(remember_token))
   end
 
   def forget
