@@ -1,19 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe CourseEnrollmentController, type: :controller do
+  include SessionsHelper
 
-  describe "GET #enroll" do
-    it "returns http success" do
-      get :enroll
-      expect(response).to have_http_status(:success)
+  let(:course) { FactoryBot.create(:course) }
+  let(:user) { FactoryBot.create(:user) }
+  before { login(user) }
+
+  describe "#enroll" do
+    it "returns a 302 status code" do
+      post :enroll, params: { course_id: course.id }
+      expect(response).to have_http_status(302)
+    end
+
+    it 'enrolls the user in the course' do
+      post :enroll, params: { course_id: course.id }
+      expect(user.courses).to include(course)
     end
   end
 
-  describe "GET #unenroll" do
-    it "returns http success" do
-      get :unenroll
-      expect(response).to have_http_status(:success)
+  describe "#unenroll" do
+    it "returns a 302 status code" do
+      post :unenroll, params: { course_id: course.id }
+      expect(response).to have_http_status(302)
+    end
+
+    it 'unenrolls the user from the course' do
+      user.courses << course
+      post :unenroll, params: { course_id: course.id }
+      expect(user.reload.courses).to be_blank
     end
   end
-
 end

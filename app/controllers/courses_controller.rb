@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity}
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity}
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
@@ -64,13 +64,12 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def course_params
-      params.require(:course).permit(:name)
-    end
+  def set_course
+    @course = Course.find(params[:id])
+  end
+
+  def course_params
+    params.require(:course).permit(:name)
+  end
 end
