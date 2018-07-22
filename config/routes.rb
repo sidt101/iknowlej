@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'course_enrollment/enroll'
+
+  get 'course_enrollment/unenroll'
+
   get 'sessions/new'
 
   root 'static_pages#home'
