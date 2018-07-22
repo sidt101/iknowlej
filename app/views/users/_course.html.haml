@@ -1,5 +1,6 @@
 %p
-- if @user.course.present?
-  = link_to @user.course, show_course_path(@user.course)
-- else
+- if @user.courses.blank?
   = "You are currently not enrolled in a course"
+- else
+  - @user.courses.each do |course|
+    = link_to @user.course, show_course_path(@user.course)

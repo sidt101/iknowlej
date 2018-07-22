@@ -5,3 +5,9 @@
 = link_to 'Edit', edit_course_path(@course)
 |
 = link_to 'Back', courses_path
+
+%h2
+  - if current_user.courses.include?(@course)
+    = button_to 'Unenroll', { controller: 'course_enrollment', action: 'unenroll', course_id: @course.id }
+  - else
+    = button_to 'Enroll', { controller: 'course_enrollment', action: 'enroll', course_id: @course.id }

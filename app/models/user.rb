@@ -2,7 +2,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   VALID_EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  belongs_to :course, optional: true
+  has_and_belongs_to_many :courses
   validates :name, presence: true
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   has_secure_password
