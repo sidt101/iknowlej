@@ -70,6 +70,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name)
+    params.require(:course).permit(:name, documents: [])
   end
 end

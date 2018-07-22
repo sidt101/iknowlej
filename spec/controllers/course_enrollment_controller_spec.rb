@@ -8,9 +8,9 @@ RSpec.describe CourseEnrollmentController, type: :controller do
   before { login(user) }
 
   describe "#enroll" do
-    it "returns a 302 status code" do
+    it "returns success" do
       post :enroll, params: { course_id: course.id }
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
     end
 
     it 'enrolls the user in the course' do
@@ -20,9 +20,9 @@ RSpec.describe CourseEnrollmentController, type: :controller do
   end
 
   describe "#unenroll" do
-    it "returns a 302 status code" do
+    it "returns success" do
       post :unenroll, params: { course_id: course.id }
-      expect(response).to have_http_status(302)
+      expect(response).to have_http_status(200)
     end
 
     it 'unenrolls the user from the course' do
