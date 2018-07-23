@@ -3,4 +3,4 @@
   = "You are currently not enrolled in a course"
 - else
   - @user.courses.each do |course|
-    = link_to @user.course, show_course_path(@user.course)
+    = link_to course.name, course_path(course)
