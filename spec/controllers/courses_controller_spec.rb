@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe CoursesController, type: :controller do
-  before { allow(controller).to receive(:current_user).and_return(FactoryBot.create(:user)) }
+  before { allow(controller).to receive(:current_user).and_return(create(:user)) }
 
   describe '#create' do
-    let(:course) { FactoryBot.build(:course) }
+    let(:course) { build(:course) }
     context 'successful course creation' do
       it 'returns a 302' do
         post :create, params: {course: {name: course.name}}
@@ -25,7 +25,7 @@ RSpec.describe CoursesController, type: :controller do
   end
 
   describe '#destroy' do
-    let!(:course) { FactoryBot.create(:course) }
+    let!(:course) { create(:course) }
 
     it 'renders a 302' do
       delete :destroy, params: {id: course.id}

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe CourseEnrollmentController, type: :controller do
   include SessionsHelper
 
-  let(:course) { FactoryBot.create(:course) }
-  let(:user) { FactoryBot.create(:user) }
+  let(:course) { create(:course) }
+  let(:user) { create(:user) }
   before { login(user) }
 
   describe "#enroll" do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
 
-  let!(:user) { FactoryBot.create(:user) }
+  let!(:user) { create(:user) }
   let (:session_for_valid_user) do
     { :email => user.email,
       :password => user.password

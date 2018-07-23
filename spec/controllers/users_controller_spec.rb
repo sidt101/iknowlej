@@ -3,7 +3,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "#create" do
     context 'successful signup' do
-      let(:user) { FactoryBot.build(:user) }
+      let(:user) { build(:user) }
       it "returns http success" do
         post :create, params: { user: {name: user.name, email: user.email, password: user.password, password_confirmation: user.password} }
         expect(response).to have_http_status(302)
@@ -20,7 +20,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context 'unsuccessful signup' do
-      let(:created_user) { FactoryBot.create(:user) }
+      let(:created_user) { create(:user) }
 
       it 'returns a 400 when trying to create a duplicate user' do
         post :create, params: { user: {name: created_user.name, email: created_user.email, password: created_user.password, password_confirmation: created_user.password} }

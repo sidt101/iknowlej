@@ -1,8 +1,8 @@
 require 'rails_helper'
 RSpec.describe CourseManager do
-  let!(:course) { FactoryBot.create(:course) }
-  let!(:user_1) { FactoryBot.create(:user) }
-  let!(:user_2) { FactoryBot.create(:user) }
+  let!(:course) { create(:course) }
+  let!(:user_1) { create(:user) }
+  let!(:user_2) { create(:user) }
   subject { described_class.new(course) }
 
   describe '#add_users' do
