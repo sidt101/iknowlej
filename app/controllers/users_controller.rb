@@ -11,9 +11,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @user = User.find(params[:id])
-    flash[:error] = params[:error]
-    flash[:success] = params[:success]
+    set_user
   end
 
   # GET /users/new

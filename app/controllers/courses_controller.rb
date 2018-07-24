@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy, :delete_document]
+  before_action :require_admin, except: [:show]
+  before_action :set_course, except: [:index, :create]
 
   # GET /courses
   # GET /courses.json
@@ -10,8 +11,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    # flash[:error] = params[:error]
-    # flash[:success] = params[:success]
+    set_course
   end
 
   # GET /courses/new

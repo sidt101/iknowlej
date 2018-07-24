@@ -30,6 +30,12 @@ module SessionsHelper
 
   private
 
+  def require_admin
+    unless logged_in? && current_user.admin?
+      redirect_to current_user
+    end
+  end
+
   def require_login
     unless logged_in?
       redirect_to login_url

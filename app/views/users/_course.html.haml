@@ -2,5 +2,7 @@
 - if @user.courses.blank?
   = "You are currently not enrolled in a course"
 - else
+  %strong Enrolled Courses
+%p
   - @user.courses.each do |course|
     = link_to course.name, course_path(course)
