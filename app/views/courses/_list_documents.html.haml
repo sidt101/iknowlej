@@ -1,0 +1,13 @@
+%h4 Files
+- if @course.documents.present?
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Delete?
+        %th{:colspan => "3"}
+    %tbody
+      - @course.documents.each do |document|
+        %tr
+          %td= link_to document.filename, document, target: :blank
+          %td= link_to 'Remove Document', delete_document_course_url(document_id: document.id), method: :delete, params: { course: @course }

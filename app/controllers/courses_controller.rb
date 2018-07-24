@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :delete_document]
 
   # GET /courses
   # GET /courses.json
@@ -47,6 +47,12 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     redirect_to courses_url, notice: 'Course was successfully destroyed.'
+  end
+
+  def delete_document
+    document = ActiveStorage::Attachment.find(params[:document_id])
+    document.purge
+    redirect_to @course, notice: 'Document was successfully removed.'
   end
 
   private

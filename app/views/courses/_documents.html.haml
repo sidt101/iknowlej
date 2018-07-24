@@ -1,15 +1,4 @@
 %h3 Course Documents for #{@course.name}
-- if @course.documents.present?
-  %p Files
-  %table
-    %tbody
-      - @course.documents.each do |document|
-        %tr
-          %td= link_to document.filename, document, target: :blank
 
-= form_for(@course) do |form|
-  .field
-    = form.label :documents
-    = form.file_field :documents, multiple: true
-    .action
-    = form.submit class: "btn btn-primary"
+= render 'list_documents'
+= render 'upload_documents'

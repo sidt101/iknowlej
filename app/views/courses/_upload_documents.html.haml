@@ -1,0 +1,6 @@
+= form_for(@course) do |form|
+  .field
+    = form.label :documents
+    = form.file_field :documents, multiple: true
+    .action
+    = form.submit class: "btn btn-primary"

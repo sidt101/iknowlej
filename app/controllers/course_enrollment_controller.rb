@@ -3,14 +3,12 @@ class CourseEnrollmentController < ApplicationController
 
   def enroll
     current_user.courses << @course
-    flash[:success] = 'You successfully enrolled in this course'
-    render "courses/show"
+    redirect_to @course, notice: 'You successfully enrolled in this course'
   end
 
   def unenroll
     current_user.courses.delete(@course)
-    flash[:success] = 'You successfully unenrolled from this course'
-    render "courses/show"
+    redirect_to @course, notice: 'You successfully unenrolled in this course'
   end
 
   private
