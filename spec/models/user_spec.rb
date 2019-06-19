@@ -1,14 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  let(:name) { 'Sid Tandon' }
-  let(:email) { 'sid@boss.com' }
-  let(:password) { 'foobar' }
-  let(:password_confirmation) { 'foobar' }
 
-  subject { User.new(name: name, email: email, password: password, password_confirmation: password_confirmation) }
+  describe '#admin?' do
+    context 'when an admin' do
+      let(:user) { FactoryBot.build(:user, permission_type: :student) }
+
+      it { expect(user.admin?).to be(false) }
+    end
+
+    context 'when not an admin' do
+      let(:user) { FactoryBot.build(:user, :admin) }
+
+      it { expect(user.admin?).to be(true) }
+    end
+  end
 
   context 'valid user' do
+    let(:name) { 'Sid Tandon' }
+    let(:email) { 'sid@boss.com' }
+    let(:password) { 'foobar' }
+    let(:password_confirmation) { 'foobar' }
+
+    subject do
+      FactoryBot.build(:user, name: name, email: email, password: password, password_confirmation: password_confirmation)
+    end
+
     context 'no name' do
       let(:name) { ' ' }
       it { should_not be_valid }
