@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7i'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 gem 'jquery-rails'
 gem 'haml-rails', '>= 0.3.4'
 
